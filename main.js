@@ -42,7 +42,6 @@ function onInpTodoTitleKeyup(event) {
     disabledButtonWhenTextInvalid(domBtnCreateTodo, inputValue, isStringNotNumberAndNotEmpty);
 }
 
-
 function isStringNotNumberAndNotEmpty(value) {
     const isValueString = typeof value === "string"; // проверка на строку
     const isValueNotNumber = isNaN(parseInt(value)); // проверка на не число
