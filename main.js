@@ -144,3 +144,8 @@ function disableOrEnable_CreateTodoButtonOnTodoInputTitle(validateInputMethod = 
 function save_ListOfTodo() {
   localStorageSaveListOfWithKey(LOCAL_LIST_OF_TODOS, listOfTodos);
 }
+
+function hello(a, b) {
+return a * b;
+
+hello(1, 2);
