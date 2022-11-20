@@ -1,8 +1,8 @@
-import TodoVO from './src/model/vos/TodoVO.js';
+import TodoVO from '/src/model/vos/TodoVO.js';
 import { disableButtonWhenTextInvalid } from '/src/utils/domUtils';
-import { isStringNotNumberAndNotEmpty } from './utils/stringUtils.js';
-import { localStorageListOf, localStorageSaveListOfWithKey } from './utils/databaseUtils.js';
-import TodoView from './view/TodoView.js';
+import { isStringNotNumberAndNotEmpty } from '/src/utils/stringUtils';
+import { localStorageListOf, localStorageSaveListOfWithKey } from '/src/utils/databaseUtils';
+import TodoView from '/src/view/TodoView';
 import { DATE_PICKER_INPUT_COLOR_SCHEME } from 'carbon-web-components/es/components/date-picker/defs.js';
 
 const domInpTodoTitle = document.getElementById('inpTodoTitle');
