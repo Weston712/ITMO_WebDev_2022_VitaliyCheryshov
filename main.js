@@ -1,16 +1,29 @@
-import TodoVO from '/src/model/vos/TodoVO.js';
+import TodoVO from '/src/model/vos/TodoVO';
 import { disableButtonWhenTextInvalid } from '/src/utils/domUtils';
 import { isStringNotNumberAndNotEmpty } from '/src/utils/stringUtils';
 import { localStorageListOf, localStorageSaveListOfWithKey } from '/src/utils/databaseUtils';
 import TodoView from '/src/view/TodoView';
-import { DATE_PICKER_INPUT_COLOR_SCHEME } from 'carbon-web-components/es/components/date-picker/defs.js';
+import ServerService from './src/services/serverService';
+// import { DATE_PICKER_INPUT_COLOR_SCHEME } from 'carbon-web-components/es/components/date-picker/defs.js';
 
-const domInpTodoTitle = document.getElementById('inpTodoTitle');
-const domBtnCreateTodo = document.getElementById('btnCreateTodo');
-const domListOfTodos = document.getElementById('listOfTodos');
+const $ = document.getElementById;
+
+const domInpTodoTitle = $('inpTodoTitle');
+const domBtnCreateTodo = $('btnCreateTodo');
+const domListOfTodos = $('listOfTodos');
 
 let selectedTodoVO = null;
 let selectedTodoViewItem = null;
+
+const serverService = new ServerService();
+serverService.requestTodos().then(() => {
+  $('app').style.visibility = 'visible';
+})
+
+const debug = console.log;
+console.log = (msg, ...args) => {
+  if (import.meta.env.DEV) debug(msg, ...args);
+};
 
 domBtnCreateTodo.addEventListener('click', onBtnCreateTodoClick);
 domInpTodoTitle.addEventListener('keyup', onInpTodoTitleKeyup);

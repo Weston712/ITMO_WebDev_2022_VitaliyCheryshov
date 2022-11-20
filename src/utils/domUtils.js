@@ -1,4 +1,4 @@
-function disabledButtonWhenTextInvalid(button, text, validateTextFunction, { textWhenDisabled, textWhenEnabled } = {}) {
+function disableButtonWhenTextInvalid(button, text, validateTextFunction, { textWhenDisabled, textWhenEnabled } = {}) {
   if (!validateTextFunction) throw new Error('Validate method must be defined');
 
   if (validateTextFunction(text)) {
@@ -10,4 +10,4 @@ function disabledButtonWhenTextInvalid(button, text, validateTextFunction, { tex
   }
 }
 
-export { disabledButtonWhenTextInvalid };
+export { disableButtonWhenTextInvalid };
